@@ -296,6 +296,41 @@ body {
   line-height: 1.65;
 }
 
+.supabase-panel {
+  max-width: 36rem;
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1.15rem;
+  width: calc(100% - clamp(2.5rem, 8vw, 6rem));
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+}
+
+.supabase-panel__title {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--plum);
+  font-weight: 600;
+}
+
+.supabase-status {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+.supabase-status[data-state="ok"] {
+  color: var(--text);
+}
+
+.supabase-status[data-state="error"] {
+  color: var(--accent);
+}
+
 .site-footer {
   padding: 1.5rem clamp(1.25rem, 4vw, 3rem) 2rem;
   text-align: center;

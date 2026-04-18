@@ -1,1 +1,4 @@
 .DS_Store
+
+# Supabase browser config (copy from supabase-config.example.js)
+website/supabase-config.js

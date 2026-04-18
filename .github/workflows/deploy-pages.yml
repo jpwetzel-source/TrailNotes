@@ -23,6 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Write Supabase config from secrets (optional)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -n "$SUPABASE_URL" ] && [ -n "$SUPABASE_ANON_KEY" ]; then
+            python3 -c "import os; u=os.environ['SUPABASE_URL']; k=os.environ['SUPABASE_ANON_KEY']; open('website/supabase-config.js','w',encoding='utf-8').write('export const supabaseUrl = '+repr(u)+';\nexport const supabaseAnonKey = '+repr(k)+';\n')"
+            echo "Wrote website/supabase-config.js"
+          else
+            echo "No SUPABASE_URL / SUPABASE_ANON_KEY secrets: skipping config (site shows not configured)."
+          fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

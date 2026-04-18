@@ -1,0 +1,47 @@
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.49.8";
+
+let cachedClient = null;
+
+function hasPlaceholders(url, key) {
+  if (!url || !key) return true;
+  if (!url.startsWith("https://") || !url.includes(".supabase.co")) return true;
+  if (key.includes("YOUR_") || key.length < 20) return true;
+  return false;
+}
+
+export async function loadSupabaseConfig() {
+  try {
+    const mod = await import("../supabase-config.js");
+    return {
+      url: mod.supabaseUrl,
+      key: mod.supabaseAnonKey,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export async function getSupabaseClient() {
+  if (cachedClient) return cachedClient;
+  const cfg = await loadSupabaseConfig();
+  if (!cfg || hasPlaceholders(cfg.url, cfg.key)) return null;
+  cachedClient = createClient(cfg.url, cfg.key);
+  return cachedClient;
+}
+
+/** Lightweight reachability check (no table required). */
+export async function pingSupabaseAuth() {
+  const cfg = await loadSupabaseConfig();
+  if (!cfg || hasPlaceholders(cfg.url, cfg.key)) {
+    return { ok: false, reason: "not_configured" };
+  }
+  const base = cfg.url.replace(/\/$/, "");
+  const res = await fetch(base + "/auth/v1/health", {
+    headers: {
+      apikey: cfg.key,
+      Authorization: "Bearer " + cfg.key,
+    },
+  });
+  if (!res.ok) return { ok: false, reason: "http_" + res.status };
+  return { ok: true };
+}
