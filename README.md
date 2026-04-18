@@ -40,6 +40,17 @@ Replace `YOUR_PROJECT_REF` and `YOUR_SUPABASE_ANON_PUBLIC_KEY` in `supabase-conf
 
 Use `@supabase/supabase-js` from `website/js/supabase-client.js` (ES module + `esm.sh`) for queries. Never put the **service_role** key in the website folder.
 
+## Supabase VS Code extension (Cursor)
+
+This workspace recommends the official **Supabase** extension so Cursor prompts you to install it when you open the folder (see `.vscode/extensions.json`).
+
+1. Install the extension when prompted, or open **Extensions** and install **Supabase** (`supabase.vscode-supabase-extension`).
+2. Install the **[Supabase CLI](https://supabase.com/docs/guides/cli/getting-started)** on your machine (`brew install supabase` on macOS is typical).
+3. From the repo root, link your hosted project when you are ready: `supabase link` (uses your Supabase account; see CLI docs).
+4. Use **`supabase db pull`** to sync remote schema into `supabase/migrations`, then the extension can inspect tables and migrations locally.
+
+The extension focuses on **local CLI + schema/migrations**; the hosted dashboard is still where org and billing live.
+
 ## Create the GitHub repository (reference)
 
 ### Option A: GitHub website
