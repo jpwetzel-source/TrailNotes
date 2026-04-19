@@ -2,6 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <script>
+      (function () {
+        if (document.querySelector("base[data-trailnotes-prototype-base]")) return;
+        var path = location.pathname.replace(/\/+$/, "");
+        if (path === "") path = "/";
+        var basePath;
+        if (path === "/") {
+          basePath = "/";
+        } else {
+          var lastSlash = path.lastIndexOf("/");
+          var last = path.slice(lastSlash + 1);
+          var isHtml = /\.html?$/i.test(last);
+          basePath = isHtml ? path.slice(0, lastSlash + 1) || "/" : path + "/";
+        }
+        var b = document.createElement("base");
+        b.href = basePath;
+        b.setAttribute("data-trailnotes-prototype-base", "1");
+        var cs = document.querySelector("meta[charset]");
+        if (cs && cs.parentNode) cs.parentNode.insertBefore(b, cs.nextSibling);
+        else document.head.prepend(b);
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Journal - TrailNotes</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -49,7 +71,7 @@
 
     <nav id="prototype-app-bottom-nav" class="app-bottom-nav" aria-label="Primary"></nav>
 
-    <script type="module" src="js/core/boot-nav.js?v=4"></script>
+    <script type="module" src="js/core/boot-nav.js?v=5"></script>
     <script type="module" src="js/features/journal/journal-list-page.js?v=3"></script>
   </body>
 </html>

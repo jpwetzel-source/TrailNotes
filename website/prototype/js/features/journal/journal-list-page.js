@@ -1,3 +1,4 @@
+import { initAppChrome } from "../../core/app-chrome.js";
 import { JOURNAL_STORAGE_KEY } from "./journal-schema.js";
 import { listJournalEntries } from "./journal-store.js";
 
@@ -104,6 +105,7 @@ function render() {
   root.appendChild(list);
 }
 
+initAppChrome();
 render();
 
 globalThis.addEventListener("pageshow", (event) => {

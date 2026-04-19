@@ -13,6 +13,8 @@ const INACTIVE =
 export function activeTabFromPath() {
   const file = (globalThis.location.pathname.split("/").pop() || "").toLowerCase();
   if (file === "index.html" || file === "") return "dashboard";
+  // Project URL without trailing slash (e.g. /REPO) last segment is the repo folder name
+  if (file && !file.includes(".")) return "dashboard";
   if (file === "trips.html") return "trips";
   if (file === "journal.html" || file === "journal-entry.html") return "journal";
   return null;

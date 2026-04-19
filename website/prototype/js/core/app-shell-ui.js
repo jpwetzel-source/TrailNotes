@@ -16,9 +16,16 @@ export const PROTOTYPE_PROFILE_AVATAR_SRC =
 
 const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#006948"/><path fill="#C8F9E4" d="M10 27 18 14l4 4.5 9.5-10V27z"/><path fill="#fff" fill-opacity="0.45" d="M10 27 20.5 21.7 31 27z"/></svg>`;
 
-const HEADER_INNER = `<a href="index.html" class="app-logo" aria-label="TrailNotes home, dashboard">${LOGO_SVG}</a><a href="profile.html" class="block h-10 w-10 shrink-0 overflow-hidden rounded-full bg-surface-container-high ring-1 ring-black/5 shadow-sm"><img alt="Profile" class="h-full w-full object-cover" src="${PROTOTYPE_PROFILE_AVATAR_SRC}"/></a>`;
+/** Deploy root (folder that contains index.html), derived from this module path `js/core/`. */
+const PROTOTYPE_ROOT = new globalThis.URL("../..", import.meta.url);
 
-const BOTTOM_NAV_INNER = `<a data-nav-tab="dashboard" href="index.html" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">dashboard</span><span class="font-sans text-[11px] font-semibold">Dashboard</span></a><a data-nav-tab="trips" href="trips.html" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">map</span><span class="font-sans text-[11px] font-semibold">Trips</span></a><a data-nav-tab="journal" href="journal.html" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">edit_note</span><span class="font-sans text-[11px] font-semibold">Journal</span></a>`;
+function pageHref(file) {
+  return new globalThis.URL(file, PROTOTYPE_ROOT).href;
+}
+
+const HEADER_INNER = `<a href="${pageHref("index.html")}" class="app-logo" aria-label="TrailNotes home, dashboard">${LOGO_SVG}</a><a href="${pageHref("profile.html")}" class="block h-10 w-10 shrink-0 overflow-hidden rounded-full bg-surface-container-high ring-1 ring-black/5 shadow-sm"><img alt="Profile" class="h-full w-full object-cover" src="${PROTOTYPE_PROFILE_AVATAR_SRC}"/></a>`;
+
+const BOTTOM_NAV_INNER = `<a data-nav-tab="dashboard" href="${pageHref("index.html")}" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">dashboard</span><span class="font-sans text-[11px] font-semibold">Dashboard</span></a><a data-nav-tab="trips" href="${pageHref("trips.html")}" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">map</span><span class="font-sans text-[11px] font-semibold">Trips</span></a><a data-nav-tab="journal" href="${pageHref("journal.html")}" class="prototype-nav__link"><span class="material-symbols-outlined prototype-nav__icon text-[22px]">edit_note</span><span class="font-sans text-[11px] font-semibold">Journal</span></a>`;
 
 /**
  * Injects shared header and bottom nav markup once per document.

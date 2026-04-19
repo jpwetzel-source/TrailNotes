@@ -1,3 +1,4 @@
+import { initAppChrome } from "../../core/app-chrome.js";
 import { deleteJournalEntry, getJournalEntry, newEmptyEntry, saveJournalEntry } from "./journal-store.js";
 
 /** @typedef {import("./journal-schema.js").JournalEntry} JournalEntry */
@@ -81,6 +82,8 @@ function setStatus(message, isError) {
 function snapshot(entryId) {
   return JSON.stringify(readForm(entryId));
 }
+
+initAppChrome();
 
 const entryId = readIdFromQuery();
 const pageTitle = qs("journal-entry-page-title");
