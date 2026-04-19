@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrailNotes - My Journeys</title>
+    <title>Journeys - TrailNotes</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="tw-theme.js"></script>
     <link
@@ -47,139 +47,75 @@
       </a>
     </header>
 
-    <main class="pt-24 px-6">
-      <section class="mb-10">
-        <h1 class="font-serif font-bold text-4xl text-on-background mb-2 leading-tight">My Journeys</h1>
-        <p class="text-on-surface-variant font-medium opacity-70">12 trails explored this season</p>
+    <main class="pt-24 px-6 max-w-2xl mx-auto">
+      <section class="mb-6">
+        <h1 id="trips-page-title" class="font-serif font-bold text-4xl text-on-background mb-1 leading-tight">My journeys</h1>
+        <p id="trips-page-subtitle" class="text-on-surface-variant font-medium opacity-80 text-sm">
+          Your logged hikes and plans
+        </p>
+        <p id="trips-quick-stats" class="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500"></p>
       </section>
 
-      <div class="flex gap-3 mb-8 overflow-x-auto pb-2 no-scrollbar">
-        <span class="bg-primary-fixed text-on-primary-fixed px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
-          >All Trips</span
+      <section class="mb-6 space-y-4" aria-label="Journey feed controls">
+        <div
+          class="flex rounded-xl bg-surface-container-highest/90 p-1 gap-1 shadow-inner border border-white/30"
+          role="tablist"
+          aria-label="Journey source"
         >
-        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
-          >Alpine</span
-        >
-        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
-          >Forests</span
-        >
-        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
-          >Coastal</span
-        >
+          <button
+            type="button"
+            id="trips-tab-mine"
+            role="tab"
+            aria-selected="true"
+            aria-controls="trips-list-root"
+            class="flex-1 min-w-0 rounded-lg py-2.5 px-3 text-sm font-bold transition-colors bg-primary-fixed text-on-primary-fixed shadow-sm"
+          >
+            My journeys
+          </button>
+          <button
+            type="button"
+            id="trips-tab-community"
+            role="tab"
+            aria-selected="false"
+            aria-controls="trips-list-root"
+            class="flex-1 min-w-0 rounded-lg py-2.5 px-3 text-sm font-bold transition-colors text-on-surface-variant hover:bg-white/50"
+          >
+            Community
+          </button>
+        </div>
+        <div class="relative">
+          <span
+            class="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-xl text-outline"
+            aria-hidden="true"
+            >search</span
+          >
+          <label class="sr-only" for="trips-search">Search journeys</label>
+          <input
+            id="trips-search"
+            type="search"
+            autocomplete="off"
+            class="w-full rounded-xl border border-white/60 bg-white/50 py-3 pl-11 pr-4 text-sm text-on-background shadow-sm placeholder:text-outline-variant focus:outline-none focus:ring-2 focus:ring-primary/30"
+            placeholder="Search title, place, or friend"
+          />
+        </div>
+      </section>
+
+      <div class="mb-8 flex gap-3 overflow-x-auto pb-2 no-scrollbar" role="group" aria-label="Filter by terrain">
+        <button type="button" data-trip-chip="all" class="shrink-0 rounded-full px-6 py-2 text-sm font-bold transition-colors">
+          All trips
+        </button>
+        <button type="button" data-trip-chip="alpine" class="shrink-0 rounded-full px-6 py-2 text-sm font-bold transition-colors">
+          Alpine
+        </button>
+        <button type="button" data-trip-chip="forests" class="shrink-0 rounded-full px-6 py-2 text-sm font-bold transition-colors">
+          Forests
+        </button>
+        <button type="button" data-trip-chip="coastal" class="shrink-0 rounded-full px-6 py-2 text-sm font-bold transition-colors">
+          Coastal
+        </button>
       </div>
 
-      <div class="space-y-8">
-        <article
-          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
-        >
-          <div class="flex flex-col gap-4">
-            <div class="relative h-48 w-full rounded-lg overflow-hidden">
-              <img
-                alt="Mountain View"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe_D2_NTW-isPf0mvjiECO0zjsn38Rp3jdDfGE04FEJLL8BvcBShQexyCATSKcrqs20jPWvuiWRQbENM2t5byap3jT8pOcDyl6y1TjUP4K0Q9G1_0zm9NuJizEWMdDFtyQO073BeU7nfFdT7JYKeGYDQjmfstp26SGvoA3qToxp0u0Xxr-2L-VwoRDf3R2uKOfpbsC8BdBL57JFVfsxF3pgBeztNt2EeQDFHIJEwvGX6OdEFCvVLFrIqVvlx9UMmrOpBQaZUf3XX0"
-              />
-              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
-                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
-              </div>
-            </div>
-            <div class="px-2">
-              <div class="flex justify-between items-start mb-2">
-                <h2 class="font-serif font-bold text-2xl text-emerald-900">High Sierra Loop</h2>
-                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
-              </div>
-              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                  Oct 12, 2023
-                </div>
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">schedule</span>
-                  6h 45m
-                </div>
-              </div>
-              <p class="text-on-surface-variant leading-relaxed text-sm">
-                An alpine journey through the heart of the Sierra Nevada. Witnessed a breathtaking sunrise over the glacial
-                lake near the summit.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article
-          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
-        >
-          <div class="flex flex-col gap-4">
-            <div class="relative h-48 w-full rounded-lg overflow-hidden">
-              <img
-                alt="Forest Path"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLvfjHCxUtlhkywOG4KC_G3lYLw_F0tg3zsbhuyMInS7fIh4ZZu7BBKWrSA2SP6DfzfbIe5dvsbmWS308l5V36UxDeo5m3__EU1ZxpoZeIjniCn6b4hm1CR9oWqgyFojbBw_AfOYLNMRUc4wc8MeLADyhaHySCAR1MKcCvWPWJvoQ21OYFvmjGLqILYto68Jas1elBiRFSLreG5ZOkbYllLo-WY-BGy91of0vIap9qWpM_sJyYKYASqpQZzfJkXVl-Qe2JTjMMhhg"
-              />
-              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
-                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
-              </div>
-            </div>
-            <div class="px-2">
-              <div class="flex justify-between items-start mb-2">
-                <h2 class="font-serif font-bold text-2xl text-emerald-900">Emerald Forest Path</h2>
-                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
-              </div>
-              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                  Sep 28, 2023
-                </div>
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">schedule</span>
-                  3h 20m
-                </div>
-              </div>
-              <p class="text-on-surface-variant leading-relaxed text-sm">
-                A peaceful wander through ancient ferns and towering redwoods. The air was thick with the scent of damp earth
-                and pine needles.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article
-          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
-        >
-          <div class="flex flex-col gap-4">
-            <div class="relative h-48 w-full rounded-lg overflow-hidden">
-              <img
-                alt="Coastal Cliff"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB61-viXAgSCAoS72vduxBql_72_6YRiP7MSSCcnHNlzuoorIMe16MOe1DKSRSYeLnsQ7Qkc3UUdNJJfivE82F6X0lirGfUiH706FfU3RON1PAoAkTZ7x01rwEvjXfhq8pUSVEW6J__g_ve79Kwb0EiBxg_IDry8L_uO3aLlBnk1PAAwF0M4uV8TIl0UWrfNK8h-RGuB7ZBpv087b3XSiyHCiLRHuCpM1H1eHrlnGo_y4dPKa8KYaDf1eu2EAPDL_3U6PuUrN2aF1Y"
-              />
-              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
-                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
-              </div>
-            </div>
-            <div class="px-2">
-              <div class="flex justify-between items-start mb-2">
-                <h2 class="font-serif font-bold text-2xl text-emerald-900">Pacific Rim Trail</h2>
-                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
-              </div>
-              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
-                  Sep 04, 2023
-                </div>
-                <div class="flex items-center gap-1">
-                  <span class="material-symbols-outlined text-[16px]">schedule</span>
-                  5h 10m
-                </div>
-              </div>
-              <p class="text-on-surface-variant leading-relaxed text-sm">
-                Dramatic coastal views and steady sea breezes. Spotted a pod of whales migrating south near the halfway point
-                lookout.
-              </p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div id="trips-list-root" class="space-y-8 pb-8" role="tabpanel" aria-live="polite"></div>
     </main>
 
     <nav
@@ -211,6 +147,6 @@
       </a>
     </nav>
 
-    <script type="module" src="js/core/boot-nav.js"></script>
+    <script type="module" src="js/features/trips/trips-page.js"></script>
   </body>
 </html>
