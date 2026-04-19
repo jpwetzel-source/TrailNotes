@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="prototype.css" rel="stylesheet" />
+    <link href="prototype.css?v=2" rel="stylesheet" />
     <style>
       body.trips-body {
         font-family: Manrope, sans-serif;
@@ -26,36 +26,37 @@
       }
     </style>
   </head>
-  <body class="trips-body bg-background text-on-background min-h-screen pb-32">
-    <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
-    >
-      <div class="flex items-center gap-3">
-        <a
-          href="index.html"
-          class="flex items-center justify-center p-2 rounded-full hover:bg-white/20 transition-colors active:scale-95 duration-150 text-emerald-800"
-          aria-label="Home"
-        >
-          <span class="material-symbols-outlined">menu</span>
+  <body class="app-shell trips-body bg-background text-on-background antialiased">
+    <header class="app-top-bar">
+      <div class="flex min-w-0 flex-1 items-center gap-3">
+        <a href="index.html" class="app-back-btn" aria-label="Back to dashboard">
+          <span class="material-symbols-outlined text-2xl">arrow_back</span>
         </a>
-        <a href="index.html" class="font-serif font-bold text-2xl tracking-tight text-emerald-900 no-underline">TrailNotes</a>
+        <div class="min-w-0">
+          <p class="text-[10px] font-label uppercase tracking-widest text-emerald-900/70">TrailNotes</p>
+          <h1
+            id="trips-page-title"
+            class="font-headline truncate text-xl leading-tight text-emerald-950 sm:text-2xl"
+          >
+            My journeys
+          </h1>
+        </div>
       </div>
-      <a href="profile.html" class="relative block">
+      <a href="profile.html" class="relative block shrink-0 rounded-full ring-1 ring-black/5">
         <img
           alt="Profile"
-          class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
+          class="h-10 w-10 rounded-full border-2 border-white/90 object-cover shadow-sm"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOEpq8_3fsT43yxbgik5uCnKvJqFP-t7CFx7BSwt6qtXsm81q551GnnxgEvBQ2JodKpGsGEDqKQBPtkzdiUpvUYn8DmJJu6CpXIAedBCvnBnJpvSciVX8Z0LVZwiCCKW-0g2I-eZa4jiD-MFlk66YWxp84_BHvQ5DNOAOu4iV7OfVsIsaDp3VtwXTn4bP-m9JCTWsvQ4xgLMPSoLbt3gWWnGBYiXCLRWvgPC-doot-t4Rwp2GTN9phgvbUX8bMS5_e8mh_ERsz4Y"
         />
       </a>
     </header>
 
-    <main class="pt-24 px-6 max-w-2xl mx-auto">
+    <main class="app-main">
       <section class="mb-6">
-        <h1 id="trips-page-title" class="font-serif font-bold text-4xl text-on-background mb-1 leading-tight">My journeys</h1>
-        <p id="trips-page-subtitle" class="text-on-surface-variant font-medium opacity-80 text-sm">
+        <p id="trips-page-subtitle" class="text-sm font-medium text-on-surface-variant/90">
           Your logged hikes and plans
         </p>
-        <p id="trips-quick-stats" class="mt-3 text-xs font-bold uppercase tracking-wider text-slate-500"></p>
+        <p id="trips-quick-stats" class="mt-2 text-xs font-bold uppercase tracking-wider text-slate-500"></p>
       </section>
 
       <section class="mb-6 space-y-4" aria-label="Journey feed controls">
@@ -119,38 +120,36 @@
         </button>
       </div>
 
-      <div id="trips-list-root" class="space-y-8 pb-8" role="tabpanel" aria-live="polite"></div>
+      <div id="trips-list-root" class="space-y-8" role="tabpanel" aria-live="polite"></div>
     </main>
 
-    <nav
-      class="fixed bottom-0 left-0 z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px] rounded-full mx-6 mb-8 shadow-[0_12px_32px_rgba(23,28,31,0.06)] w-[calc(100%-3rem)]"
-    >
+    <nav class="app-bottom-nav" aria-label="Primary">
       <a
         data-nav-tab="dashboard"
         href="index.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">dashboard</span>
-        <span class="font-sans font-semibold text-[11px]">Dashboard</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">dashboard</span>
+        <span class="font-sans text-[11px] font-semibold">Dashboard</span>
       </a>
       <a
         data-nav-tab="trips"
         href="trips.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">map</span>
-        <span class="font-sans font-semibold text-[11px]">Trips</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">map</span>
+        <span class="font-sans text-[11px] font-semibold">Trips</span>
       </a>
       <a
         data-nav-tab="journal"
         href="journal.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">edit_note</span>
-        <span class="font-sans font-semibold text-[11px]">Journal</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">edit_note</span>
+        <span class="font-sans text-[11px] font-semibold">Journal</span>
       </a>
     </nav>
 
-    <script type="module" src="js/features/trips/trips-page.js?v=3"></script>
+    <script type="module" src="js/features/trips/trips-page.js?v=4"></script>
   </body>
 </html>

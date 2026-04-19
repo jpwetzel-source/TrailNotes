@@ -14,53 +14,54 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="prototype.css" rel="stylesheet" />
+    <link href="prototype.css?v=2" rel="stylesheet" />
   </head>
-  <body class="bg-background font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
-    <header
-      class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
-    >
-      <div class="flex items-center gap-4">
-        <a href="index.html" class="text-emerald-800 dark:text-emerald-400 cursor-pointer p-1 rounded-full hover:bg-white/20" aria-label="Home">
-          <span class="material-symbols-outlined">menu</span>
+  <body class="app-shell bg-background font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
+    <header class="app-top-bar">
+      <div class="flex min-w-0 flex-1 items-center gap-3">
+        <a href="index.html" class="app-back-btn" aria-label="Back to dashboard">
+          <span class="material-symbols-outlined text-2xl">arrow_back</span>
         </a>
-        <a href="index.html" class="font-serif font-bold text-2xl tracking-tight text-emerald-900 dark:text-emerald-50 no-underline">TrailNotes</a>
+        <div class="min-w-0">
+          <p class="text-[10px] font-label uppercase tracking-widest text-slate-500">TrailNotes</p>
+          <h1 class="font-headline truncate text-xl text-on-surface sm:text-2xl">Profile</h1>
+        </div>
       </div>
-      <a href="profile.html" class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high ring-2 ring-primary-container/20 block">
+      <a href="profile.html" class="block h-10 w-10 shrink-0 overflow-hidden rounded-full bg-surface-container-high ring-2 ring-primary-container/25 ring-offset-2 ring-offset-background">
         <img
           alt="Profile"
-          class="w-full h-full object-cover"
+          class="h-full w-full object-cover"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7oTJ_50QL10CM8OB8L-7kO5zjBJwF-__mv4B3m2TiivGhNJjf-X7IbjtUuFKsiExxZok65qtuiSs55sC3WZ605Whqqki9qrCT-8JoHHPvMpvXPoOUT6M5TmO7iOUCLySRTUOSCWN1ARGW-ssK8j0f5h6d9XpdKypYzpEnnYTbG4ol8kZb0pI8CU5lROl0kXMjAmZbsH_N09YCnLuGfHUzgsQ5ccqa8OFrXRdZbqXRny_W6Si1HAxHj9oHoBX2nQe-zM5vES9SOrA"
         />
       </a>
     </header>
 
-    <main class="relative min-h-screen pt-28 pb-12 px-6">
+    <main class="app-main relative">
       <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary-fixed/20 rounded-full blur-[100px]"></div>
         <div class="absolute top-1/2 -right-24 w-80 h-80 bg-secondary-fixed/30 rounded-full blur-[120px]"></div>
       </div>
 
-      <div class="relative z-10 max-w-md mx-auto space-y-12">
+      <div class="relative z-10 mx-auto w-full max-w-md space-y-12">
         <section class="flex flex-col items-center text-center">
           <div class="relative group">
             <div class="w-40 h-40 rounded-xl overflow-hidden shadow-2xl rotate-3 transition-transform duration-500 group-hover:rotate-0">
               <img
                 alt="User Profile"
-                class="w-full h-full object-cover"
+                class="h-full w-full object-cover"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuASf4vWDAIA0YoprWEn8LnbsPTCcqogzONLfPyS9oq2GwR3Xbw8CVqU57QUZ99V8-5et4yOjzQpIh7GloBP2XdfA7M5jOjmtLyKRF8fc25zF5P5EI6wmecCzW5ypoqo6cg3YhtkcoWk41a0yA1tXzEYhLr5myALJ17-FIjtujFSLo1PVaWYrIHl8cMWRbx99egzoCvqfVK6JLfYsqtdH4XHOHswnvcySRnEFfH3Q6m3tUibsQcjgHI8h_SNKRp2GWbM64_wJVla0mg"
               />
             </div>
             <button
               type="button"
-              class="absolute -bottom-4 -right-4 w-12 h-12 bg-primary flex items-center justify-center rounded-full text-white shadow-lg transform transition active:scale-95"
+              class="absolute -bottom-4 -right-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white shadow-lg transition active:scale-95"
               aria-label="Edit profile photo"
             >
               <span class="material-symbols-outlined text-2xl">edit</span>
             </button>
           </div>
           <div class="mt-8 space-y-1">
-            <h2 class="font-headline font-bold text-4xl text-on-surface tracking-tight">Elena Moretti</h2>
+            <h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface">Elena Moretti</h2>
             <p class="font-label text-sm uppercase tracking-widest text-primary font-semibold">Alpine Explorer, Level 12</p>
           </div>
         </section>
@@ -137,32 +138,30 @@
       </div>
     </main>
 
-    <nav
-      class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px] rounded-full mx-6 mb-8 shadow-[0_12px_32px_rgba(23,28,31,0.06)]"
-    >
+    <nav class="app-bottom-nav" aria-label="Primary">
       <a
         data-nav-tab="dashboard"
         href="index.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">dashboard</span>
-        <span class="font-sans font-semibold text-[11px]">Dashboard</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">dashboard</span>
+        <span class="font-sans text-[11px] font-semibold">Dashboard</span>
       </a>
       <a
         data-nav-tab="trips"
         href="trips.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">map</span>
-        <span class="font-sans font-semibold text-[11px]">Trips</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">map</span>
+        <span class="font-sans text-[11px] font-semibold">Trips</span>
       </a>
       <a
         data-nav-tab="journal"
         href="journal.html"
-        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
       >
-        <span class="material-symbols-outlined prototype-nav__icon">edit_note</span>
-        <span class="font-sans font-semibold text-[11px]">Journal</span>
+        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">edit_note</span>
+        <span class="font-sans text-[11px] font-semibold">Journal</span>
       </a>
     </nav>
 

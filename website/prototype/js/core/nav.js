@@ -1,11 +1,11 @@
 const NAV_BASE =
-  "prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline";
+  "prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 transition-transform duration-200 no-underline";
 
 const ACTIVE =
-  "bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-full scale-90";
+  "bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 scale-95";
 
 const INACTIVE =
-  "text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full";
+  "text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700/50";
 
 /**
  * @returns {"dashboard" | "trips" | "journal" | null}

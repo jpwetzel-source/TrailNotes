@@ -14,8 +14,130 @@
   -webkit-backdrop-filter: blur(24px);
 }
 
-body {
-  min-height: max(884px, 100dvh);
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --app-header-clearance: 5.5rem;
+  --app-bottom-clearance: 5.25rem;
+  --app-bottom-clearance-fab: 7.75rem;
+  --app-bottom-clearance-editor: 9.5rem;
+}
+
+body.app-shell {
+  min-height: 100dvh;
+}
+
+.app-top-bar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: max(0.75rem, env(safe-area-inset-top, 0px)) 1.5rem 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+html.dark .app-top-bar,
+.dark .app-top-bar {
+  border-bottom-color: rgba(51, 65, 85, 0.45);
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.app-main {
+  box-sizing: border-box;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: calc(var(--app-header-clearance) + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(var(--app-bottom-clearance) + env(safe-area-inset-bottom, 0px) + 0.5rem);
+}
+
+.app-main--fab {
+  padding-bottom: calc(var(--app-bottom-clearance-fab) + env(safe-area-inset-bottom, 0px));
+}
+
+.app-main--editor {
+  padding-bottom: calc(var(--app-bottom-clearance-editor) + env(safe-area-inset-bottom, 0px));
+}
+
+.app-bottom-nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.65rem 1rem max(0.65rem, env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+html.dark .app-bottom-nav,
+.dark .app-bottom-nav {
+  border-top-color: rgba(51, 65, 85, 0.45);
+  background: rgba(15, 23, 42, 0.88);
+}
+
+.app-fab {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: calc(var(--app-bottom-clearance) + max(0.35rem, env(safe-area-inset-bottom, 0px)) + 0.25rem);
+  z-index: 40;
+}
+
+.app-action-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  bottom: calc(var(--app-bottom-clearance) + max(0.35rem, env(safe-area-inset-bottom, 0px)) + 0.25rem);
+  pointer-events: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.app-action-bar > .app-action-bar__inner {
+  pointer-events: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42rem;
+}
+
+.app-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  color: rgb(6 95 70);
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.app-back-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.app-back-btn:active {
+  transform: scale(0.96);
+}
+
+html.dark .app-back-btn,
+.dark .app-back-btn {
+  color: rgb(52 211 153);
 }
 
 .no-scrollbar::-webkit-scrollbar {
