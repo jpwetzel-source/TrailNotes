@@ -2,3 +2,8 @@
 
 # Supabase browser config (copy from supabase-config.example.js)
 website/supabase-config.js
+
+# Local env (if you add tooling later)
+.env
+.env.*
+!.env.example

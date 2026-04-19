@@ -1,14 +1,8 @@
 # github-practice
 
-This folder is one Git repository inside the local **`all-devs`** container (sibling to `_shell-*` templates). It is **not** the same as opening `all-devs` itself in the editor.
+Static site in `website/` backed by **Supabase** (tic tac toe demo, live stats, connectivity check). Deploys to **GitHub Pages** from `main` via Actions.
 
-**Cursor rules** live in `.cursor/rules/`. The **public static site** lives in `website/`.
-
-## Site (in `website/`)
-
-The HTML, CSS, and JS for the GitHub Pages site are in the `website/` directory.
-
-### Local preview
+## Run locally
 
 ```bash
 cd website
@@ -17,62 +11,54 @@ python3 -m http.server 8080
 
 Open `http://localhost:8080`.
 
-### GitHub Pages
+## GitHub Pages
 
-This repo deploys the `website/` folder using **GitHub Actions** (see `.github/workflows/deploy-pages.yml`). In the repo on GitHub: **Settings → Pages → Build and deployment** should use **GitHub Actions** as the source.
+Workflow: `.github/workflows/deploy-pages.yml`. In the GitHub repo: **Settings → Pages → Build and deployment** should use **GitHub Actions**. Pushes to `main` publish the `website/` folder.
 
-After pushes to `main`, the workflow uploads that folder as the site.
+## Supabase
 
-## Supabase (backend)
-
-1. Create a free project at [https://supabase.com](https://supabase.com) (new organization is fine).
-2. In the dashboard: **Project Settings → API keys**. Copy **Project URL** and the **publishable** key (`sb_publishable_...`, safe for browsers). Do not use **secret** keys in the website folder (they bypass RLS and must stay server-side only).
-3. **Local preview:** from `website/`, copy the example config and edit:
+1. Create a project at [https://supabase.com](https://supabase.com).
+2. **Project Settings → API**: copy **Project URL** and the **publishable** key (`sb_publishable_...`). Never put **secret** keys in the browser or in `website/`.
+3. **Local:** from `website/`, copy the example and edit values:
 
 ```bash
 cd website
 cp supabase-config.example.js supabase-config.js
 ```
 
-Replace `YOUR_PROJECT_REF` and `YOUR_SUPABASE_PUBLISHABLE_KEY` in `supabase-config.js`. That file stays on your machine (it is gitignored).
+`supabase-config.js` is gitignored.
 
-4. **GitHub Pages:** add [repository secrets](https://docs.github.com/actions/security-guides/using-secrets-in-github-actions) `SUPABASE_URL` and **`SUPABASE_PUBLISHABLE_KEY`** with the same values. The deploy job writes `supabase-config.js` with `supabasePublishableKey`. Protect data with [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security) on every table; the publishable key is public to anyone who loads your site.
+4. **GitHub Pages:** add repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. The deploy job generates `supabase-config.js` at build time. Use **Row Level Security** on every table; the publishable key is public to anyone who loads the site.
 
-5. Open the site and check the **Backend** box: it should say Supabase is connected after secrets are set and a deploy has run.
+5. After deploy, use **Check database** on the site when the connectivity migration has been applied.
 
-6. **Tic tac toe:** run `supabase/migrations/20260418210000_tic_tac_toe_games.sql` in the SQL Editor so the `ttt_games` table exists. (The connectivity probe migration is separate if you use **Check database**.)
+6. **Tic tac toe:** run `supabase/migrations/20260418210000_tic_tac_toe_games.sql` in the SQL Editor (or apply migrations with the CLI). The connectivity probe is `supabase/migrations/20260418120000_app_connectivity_probe.sql` if you use **Check database**.
 
-Use `@supabase/supabase-js` from `website/js/supabase-client.js` (ES module + `esm.sh`) for queries. Never put **secret** service keys in the website folder.
+The client loads `@supabase/supabase-js` from `website/js/supabase-client.js` (ES module via `esm.sh`).
 
-## Supabase VS Code extension (Cursor)
+## Supabase in Cursor / VS Code
 
-This workspace recommends the official **Supabase** extension so Cursor prompts you to install it when you open the folder (see `.vscode/extensions.json`).
+The workspace recommends the official **Supabase** extension (`.vscode/extensions.json`).
 
-1. Install the extension when prompted, or open **Extensions** and install **Supabase** (`supabase.vscode-supabase-extension`).
-2. Install the **[Supabase CLI](https://supabase.com/docs/guides/cli/getting-started)** on your machine (`brew install supabase` on macOS is typical).
-3. From the repo root, link your hosted project when you are ready: `supabase link` (uses your Supabase account; see CLI docs).
-4. Use **`supabase db pull`** to sync remote schema into `supabase/migrations`, then the extension can inspect tables and migrations locally.
+1. Install **Supabase** (`supabase.vscode-supabase-extension`).
+2. Install the [Supabase CLI](https://supabase.com/docs/guides/cli/getting-started) (for example `brew install supabase` on macOS).
+3. From the repo root: `supabase link` when you want the CLI tied to the hosted project.
+4. Use `supabase db pull` to sync remote schema into `supabase/migrations` as needed.
 
-The extension focuses on **local CLI + schema/migrations**; the hosted dashboard is still where org and billing live.
+## New GitHub repo (reference)
 
-## Create the GitHub repository (reference)
-
-### Option A: GitHub website
-
-1. On GitHub: **New repository** (any name).
-2. Leave it **empty** (no README template) if you want a clean first push.
-3. Copy the repo URL, then from the repo root:
+**Website:** create an empty repo, then:
 
 ```bash
 git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
 git push -u origin main
 ```
 
-### Option B: GitHub CLI
+**CLI:**
 
 ```bash
 gh auth login
 gh repo create YOUR_REPO_NAME --public --source=. --remote=origin --push
 ```
 
-See [GitHub Pages docs](https://docs.github.com/pages) for custom domains and more.
+See [GitHub Pages documentation](https://docs.github.com/pages) for custom domains and more.

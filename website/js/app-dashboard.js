@@ -25,7 +25,7 @@ async function refreshDashboard() {
   var note = byId("stats-status");
   var setNum = function (id, n) {
     var el = byId(id);
-    if (el) el.textContent = typeof n === "number" ? String(n) : "–";
+    if (el) el.textContent = typeof n === "number" ? String(n) : "-";
   };
 
   var client = await getSupabaseClient();
