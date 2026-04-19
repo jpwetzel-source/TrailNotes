@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Journal Entry - TrailNotes</title>
+    <title>Journal - TrailNotes</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="tw-theme.js"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,700;1,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
     <link
@@ -16,7 +16,7 @@
     />
     <link href="prototype.css" rel="stylesheet" />
   </head>
-  <body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-32">
+  <body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-36">
     <header
       class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
     >
@@ -28,7 +28,7 @@
         >
           <span class="material-symbols-outlined">menu</span>
         </a>
-        <a href="index.html" class="font-serif font-bold text-2xl tracking-tight text-emerald-900 dark:text-emerald-50"
+        <a href="index.html" class="font-serif font-bold text-2xl tracking-tight text-emerald-900 dark:text-emerald-50 no-underline"
           >TrailNotes</a
         >
       </div>
@@ -41,199 +41,64 @@
       </a>
     </header>
 
-    <main class="mt-24 px-6">
-      <section class="mb-10">
-        <h2 class="font-headline text-4xl mb-2 text-on-surface">New Journal Entry</h2>
-        <div class="relative group mt-6">
-          <input
-            class="w-full bg-transparent border-none p-0 text-2xl font-headline italic focus:ring-0 placeholder:text-outline-variant"
-            placeholder="Where did you explore today?"
-            type="text"
-          />
-          <div class="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></div>
+    <main class="mt-24 px-6 max-w-2xl mx-auto">
+      <section class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h1 class="font-headline text-4xl text-on-surface">Journal</h1>
+          <p class="text-sm text-on-surface-variant mt-2 max-w-md">
+            Entries stay in this browser for now. They are easy to export later when you connect a backend.
+          </p>
         </div>
-      </section>
-
-      <section class="mb-10">
-        <h3 class="font-label uppercase tracking-widest text-xs mb-4 text-outline">Trip Stats</h3>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="glass-card p-6 rounded-xl flex flex-col justify-between h-32 border border-white/20">
-            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1"
-              >straighten</span
-            >
-            <div>
-              <p class="text-3xl font-headline font-bold">12.4</p>
-              <p class="text-xs font-label text-outline uppercase tracking-wider">Miles</p>
-            </div>
-          </div>
-          <div
-            class="bg-primary-container p-6 rounded-xl flex flex-col justify-between h-32 text-on-primary-container shadow-lg shadow-primary/10"
-          >
-            <span class="material-symbols-outlined">filter_hdr</span>
-            <div>
-              <p class="text-3xl font-headline font-bold">2,450</p>
-              <p class="text-xs font-label opacity-80 uppercase tracking-wider">Elevation Ft</p>
-            </div>
-          </div>
-          <div class="col-span-2 glass-card p-6 rounded-xl flex items-center justify-between border border-white/20">
-            <div class="flex items-center gap-4">
-              <div
-                class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container"
-              >
-                <span class="material-symbols-outlined">schedule</span>
-              </div>
-              <div>
-                <p class="font-bold text-lg">04:22:15</p>
-                <p class="text-xs font-label text-outline uppercase tracking-wider">Total Moving Time</p>
-              </div>
-            </div>
-            <span class="material-symbols-outlined text-outline">chevron_right</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-10 relative">
-        <div class="flex items-baseline justify-between mb-4">
-          <h3 class="font-label uppercase tracking-widest text-xs text-outline">Add Photos</h3>
-          <button type="button" class="text-xs font-bold text-primary flex items-center gap-1">
-            <span class="material-symbols-outlined text-sm">add_a_photo</span>
-            ADD ALL
-          </button>
-        </div>
-        <div class="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 no-scrollbar">
-          <div
-            class="relative min-w-[200px] h-64 rounded-lg overflow-hidden shadow-xl -rotate-2 transform hover:rotate-0 transition-transform duration-300"
-          >
-            <img
-              alt="Mountain View"
-              class="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBChcZmKTuDuUYESbVafdsbbCxUKnm4EUGBdjRtK2a04-aIfbl-KDm70WoyDn3c1fruoVeI3A2LDEfYB6ekigcxBPptym15Mjn4PjVA4bNLmAY6AwWI-XEsSCTYYpDvVmrrCyS3CnbjS1hN818RJ3BzWmneLIGo7VR_9QOMCKFK2glIdrktBFwppEL0_PnixdA2MSkWM407NXkwq14fR24JfWBN_Ftbg2zAyfStyx4yQTU-WwcsZPMelZCvxwRhp3gjh0b0uOjsNtI"
-            />
-          </div>
-          <div
-            class="relative min-w-[200px] h-64 rounded-lg overflow-hidden shadow-xl rotate-1 transform hover:rotate-0 transition-transform duration-300"
-          >
-            <img
-              alt="Forest"
-              class="w-full h-full object-cover"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtkpIdALVLIufHTSqXpSVNk6gk3BY3cw8gTNzYS75tXx7qu5OjHUvHcgIX5AZ1gRBERT0nSA49NGZmZ8nGvRvcUxnBDsWwQuoVrKdMYfLicjts6LjcBqUyZ7E5BBqwdCYPf1piQtJwihSPEUG2xPN8g3uNSKzbZs_y7Z2iOdrLST0gnvczdHLSj7ELHOYYHPA36kOG3_QfWbEHXZnXMongSorQCfaBuKqqJaDDdQ8R9ws28tyhG9xtzS0YRC9T93zehjHmMIQrtS0"
-            />
-          </div>
-          <div
-            class="min-w-[140px] h-64 rounded-lg bg-surface-container-high border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline"
-          >
-            <span class="material-symbols-outlined text-3xl mb-2">add</span>
-            <span class="text-[10px] font-label uppercase tracking-widest">Upload More</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-10">
-        <div class="glass-card rounded-xl p-8 border border-white/30 shadow-sm">
-          <h3 class="font-headline text-2xl italic mb-4 text-primary">The Vibe</h3>
-          <textarea
-            class="w-full bg-transparent border-none p-0 text-on-surface-variant leading-relaxed focus:ring-0 placeholder:text-outline-variant italic"
-            placeholder="How did the trail feel today? Tell the story..."
-            rows="4"
-          ></textarea>
-        </div>
-      </section>
-
-      <section class="mb-10">
-        <h3 class="font-label uppercase tracking-widest text-xs mb-4 text-outline text-center">Three things I liked most</h3>
-        <div class="space-y-4">
-          <div
-            class="bg-surface-container-lowest p-5 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transform hover:scale-[1.02] transition-transform"
-          >
-            <div
-              class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
-            >
-              1
-            </div>
-            <p class="text-sm font-medium">The silence at the hidden waterfall</p>
-          </div>
-          <div
-            class="bg-surface-container-lowest p-5 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transform hover:scale-[1.02] transition-transform"
-          >
-            <div
-              class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
-            >
-              2
-            </div>
-            <p class="text-sm font-medium">Spotting a family of deer near the ridge</p>
-          </div>
-          <div
-            class="bg-surface-container-lowest p-5 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transform hover:scale-[1.02] transition-transform"
-          >
-            <div
-              class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
-            >
-              3
-            </div>
-            <p class="text-sm font-medium">That perfectly cold water at the stream</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="mb-16">
-        <div class="bg-secondary-container/30 p-6 rounded-lg relative overflow-hidden">
-          <div class="absolute -right-8 -bottom-8 opacity-10">
-            <span class="material-symbols-outlined text-9xl">restaurant</span>
-          </div>
-          <div class="relative z-10">
-            <h3 class="font-label uppercase tracking-widest text-[10px] text-on-secondary-container mb-2">The Reward (Food)</h3>
-            <input
-              class="w-full bg-transparent border-none p-0 text-xl font-bold text-on-secondary-container focus:ring-0 placeholder:text-on-secondary-container/50"
-              placeholder="What was the post-hike fuel?"
-              type="text"
-            />
-            <div class="mt-3 flex gap-2">
-              <span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-secondary"
-                >Local Gem</span
-              >
-              <span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-secondary"
-                >High Carb</span
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fixed bottom-24 left-0 w-full px-6 z-40">
-        <button
-          type="button"
-          class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-5 rounded-xl font-bold tracking-widest uppercase text-sm shadow-xl shadow-primary/20 active:scale-95 transition-transform"
+        <a
+          href="journal-entry.html"
+          class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-primary to-primary-container px-5 py-3 text-sm font-bold uppercase tracking-widest text-on-primary shadow-lg shadow-primary/20 no-underline active:scale-95 transition-transform"
         >
-          Save Journal Entry
-        </button>
+          <span class="material-symbols-outlined text-base">add</span>
+          New entry
+        </a>
       </section>
+
+      <p
+        id="journal-empty"
+        class="rounded-xl border border-dashed border-outline-variant bg-surface-container-low/60 p-8 text-center text-sm text-on-surface-variant"
+        hidden
+      >
+        No entries yet. Capture your first trail story with <strong class="text-on-surface">New entry</strong>.
+      </p>
+
+      <div id="journal-entries" class="min-h-[40vh]"></div>
     </main>
 
     <nav
       class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px]"
     >
       <a
+        data-nav-tab="dashboard"
         href="index.html"
-        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 rounded-full hover:bg-white/40 dark:hover:bg-slate-700/40 no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
       >
-        <span class="material-symbols-outlined">dashboard</span>
-        <span class="font-sans font-semibold text-[11px]">Dashboard</span>
+        <span class="material-symbols-outlined prototype-nav__icon">dashboard</span>
+        <span class="font-sans font-semibold text-[11px] mt-1">Dashboard</span>
       </a>
       <a
+        data-nav-tab="trips"
         href="trips.html"
-        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 rounded-full hover:bg-white/40 dark:hover:bg-slate-700/40 no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
       >
-        <span class="material-symbols-outlined">map</span>
-        <span class="font-sans font-semibold text-[11px]">Trips</span>
+        <span class="material-symbols-outlined prototype-nav__icon">map</span>
+        <span class="font-sans font-semibold text-[11px] mt-1">Trips</span>
       </a>
       <a
+        data-nav-tab="journal"
         href="journal.html"
-        class="flex flex-col items-center justify-center bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-full py-2 px-4 scale-90 transition-transform duration-200 no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-full scale-90 no-underline"
         aria-current="page"
       >
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">edit_note</span>
-        <span class="font-sans font-semibold text-[11px]">Journal</span>
+        <span class="material-symbols-outlined prototype-nav__icon" style="font-variation-settings: 'FILL' 1">edit_note</span>
+        <span class="font-sans font-semibold text-[11px] mt-1">Journal</span>
       </a>
     </nav>
+
+    <script type="module" src="js/features/journal/journal-list-page.js"></script>
   </body>
 </html>

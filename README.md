@@ -1,6 +1,6 @@
 # TrailNotes
 
-Production project: static site in `website/` backed by **Supabase** (tic tac toe demo, live stats, connectivity check). Deploys to **GitHub Pages** from `main` via Actions. The `github-practice` repository stays a separate template and is not the deploy target for this project.
+Production project: the **app prototype** lives in `website/prototype/` and deploys to **GitHub Pages** from `main` (site root is the prototype). The rest of `website/` (tic tac toe demo, live stats, Supabase connectivity) is for **local** runs. The `github-practice` repository stays a separate template and is not the deploy target for this project.
 
 ## Run locally
 
@@ -9,11 +9,21 @@ cd website
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080`.
+Open `http://localhost:8080` for the Supabase demo, or `http://localhost:8080/prototype/index.html` for the prototype.
 
-## GitHub Pages
+## GitHub Pages (prototype)
 
-Workflow: `.github/workflows/deploy-pages.yml`. In the GitHub repo: **Settings → Pages → Build and deployment** should use **GitHub Actions**. Pushes to `main` publish the `website/` folder.
+Workflow: `.github/workflows/deploy-pages.yml`.
+
+1. In the GitHub repo: **Settings → Pages → Build and deployment**, set source to **GitHub Actions** (not “Deploy from a branch”).
+2. Push to `main` (or run the workflow manually). The published site is **only** the contents of `website/prototype/`, so the **site root is the dashboard**.
+
+**URLs** (replace `OWNER` and `REPO` with your GitHub user or org and repository name):
+
+- Project site: `https://OWNER.github.io/REPO/` (opens `prototype/index.html` as `/index.html`)
+- Other screens: `https://OWNER.github.io/REPO/trips.html`, `https://OWNER.github.io/REPO/journal.html`, `https://OWNER.github.io/REPO/journal-entry.html`, `https://OWNER.github.io/REPO/profile.html`
+
+To publish the **full** `website/` folder again (tic tac toe at `/`), change the workflow step **Upload artifact** to `path: website` instead of `website/prototype`.
 
 ## Supabase
 
@@ -28,9 +38,9 @@ cp supabase-config.example.js supabase-config.js
 
 `supabase-config.js` is gitignored.
 
-4. **GitHub Pages:** add repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY`. The deploy job generates `supabase-config.js` at build time. Use **Row Level Security** on every table; the publishable key is public to anyone who loads the site.
+4. **Optional CI:** you can add repository secrets `SUPABASE_URL` and `SUPABASE_PUBLISHABLE_KEY` so the workflow still writes `website/supabase-config.js` in the runner (useful for local clones or if you switch Pages back to publishing all of `website/`). The **prototype** on Pages does not load that file. Use **Row Level Security** on every table; the publishable key is public to anyone who loads a page that embeds it.
 
-5. After deploy, use **Check database** on the site when the connectivity migration has been applied.
+5. After you run the full site locally with config, use **Check database** on `http://localhost:8080/` when the connectivity migration has been applied.
 
 6. **Tic tac toe:** run `supabase/migrations/20260418210000_tic_tac_toe_games.sql` in the SQL Editor (or apply migrations with the CLI). The connectivity probe is `supabase/migrations/20260418120000_app_connectivity_probe.sql` if you use **Check database**.
 

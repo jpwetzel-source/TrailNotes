@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journal entry - TrailNotes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tw-theme.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,700;1,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="prototype.css" rel="stylesheet" />
+  </head>
+  <body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-40">
+    <header
+      class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+    >
+      <div class="flex items-center gap-3 min-w-0">
+        <a
+          href="journal.html"
+          class="text-emerald-800 dark:text-emerald-400 rounded-full p-1 hover:bg-white/30 shrink-0"
+          aria-label="Back to journal"
+        >
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <div class="min-w-0">
+          <p class="text-[10px] font-label uppercase tracking-widest text-outline">TrailNotes</p>
+          <h1 id="journal-entry-page-title" class="font-headline text-xl sm:text-2xl text-on-surface truncate">New journal entry</h1>
+        </div>
+      </div>
+      <a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden shadow-sm shrink-0 block">
+        <img
+          alt="Profile"
+          class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4lrsbE1lJkJEoNAeibVQgq-Zg-AUJP6nBLAXErRPAy4k5Q0SfiR1fr64-c7SCr1rGTGhZmjp8N1klfMDVv0SMkZGic8gTD9d-Lm9Uzw53WL0-NShFnYUCzwN1SeZPrAD2-moz_7gxDAPnA4VRBv-l5w_uNS_9hgk2HrVTS7x20eo-FM8BFnd7ZtvjwCzVZ2XOABOHZv_H10mSmr1_mQApBepkschsK1mX1KT6qh-fZaMBmtMpdpOOrHAiiq-OEmH9zi5jkpY8FP4"
+        />
+      </a>
+    </header>
+
+    <main class="mt-28 px-6 max-w-2xl mx-auto">
+      <p
+        id="journal-entry-status"
+        class="mb-4 rounded-lg px-3 py-2 text-sm font-medium hidden"
+        role="status"
+        data-state="idle"
+      ></p>
+
+      <form id="journal-entry-form" class="space-y-10">
+        <section>
+          <h2 class="font-headline text-2xl mb-2 text-on-surface">Route</h2>
+          <div class="relative group mt-4">
+            <label class="sr-only" for="field-title">Where did you explore today?</label>
+            <input
+              id="field-title"
+              name="title"
+              class="w-full bg-transparent border-none p-0 text-2xl font-headline italic focus:ring-0 placeholder:text-outline-variant"
+              placeholder="Where did you explore today?"
+              type="text"
+              autocomplete="off"
+            />
+            <div class="absolute -bottom-2 left-0 w-12 h-1 bg-primary rounded-full"></div>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="font-label uppercase tracking-widest text-xs mb-4 text-outline">Trip stats</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="glass-card p-6 rounded-xl flex flex-col justify-between h-32 border border-white/20">
+              <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">straighten</span>
+              <div>
+                <label class="sr-only" for="field-miles">Miles</label>
+                <input
+                  id="field-miles"
+                  name="miles"
+                  inputmode="decimal"
+                  class="w-full bg-transparent border-none p-0 text-3xl font-headline font-bold focus:ring-0 placeholder:text-outline-variant"
+                  placeholder="0"
+                  type="text"
+                  autocomplete="off"
+                />
+                <p class="text-xs font-label text-outline uppercase tracking-wider">Miles</p>
+              </div>
+            </div>
+            <div
+              class="bg-primary-container p-6 rounded-xl flex flex-col justify-between h-32 text-on-primary-container shadow-lg shadow-primary/10"
+            >
+              <span class="material-symbols-outlined">filter_hdr</span>
+              <div>
+                <label class="sr-only" for="field-elevation-ft">Elevation in feet</label>
+                <input
+                  id="field-elevation-ft"
+                  name="elevationFt"
+                  inputmode="numeric"
+                  class="w-full bg-transparent border-none p-0 text-3xl font-headline font-bold focus:ring-0 placeholder:text-on-primary-container/50"
+                  placeholder="0"
+                  type="text"
+                  autocomplete="off"
+                />
+                <p class="text-xs font-label opacity-80 uppercase tracking-wider">Elevation ft</p>
+              </div>
+            </div>
+            <div class="col-span-2 glass-card p-6 rounded-xl flex items-center justify-between border border-white/20">
+              <div class="flex items-center gap-4 min-w-0">
+                <div
+                  class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0"
+                >
+                  <span class="material-symbols-outlined">schedule</span>
+                </div>
+                <div class="min-w-0">
+                  <label class="sr-only" for="field-moving-time">Total moving time</label>
+                  <input
+                    id="field-moving-time"
+                    name="movingTime"
+                    class="w-full bg-transparent border-none p-0 text-lg font-bold focus:ring-0 placeholder:text-outline-variant"
+                    placeholder="04:22:15"
+                    type="text"
+                    autocomplete="off"
+                  />
+                  <p class="text-xs font-label text-outline uppercase tracking-wider">Total moving time</p>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-outline shrink-0" aria-hidden="true">chevron_right</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="font-label uppercase tracking-widest text-xs text-outline">Photos</h3>
+            <span class="text-[11px] font-label uppercase tracking-widest text-outline">Coming soon</span>
+          </div>
+          <div class="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 no-scrollbar">
+            <div
+              class="relative min-w-[200px] h-64 rounded-lg overflow-hidden shadow-xl -rotate-2 transform hover:rotate-0 transition-transform duration-300"
+            >
+              <img
+                alt="Mountain view sample"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBChcZmKTuDuUYESbVafdsbbCxUKnm4EUGBdjRtK2a04-aIfbl-KDm70WoyDn3c1fruoVeI3A2LDEfYB6ekigcxBPptym15Mjn4PjVA4bNLmAY6AwWI-XEsSCTYYpDvVmrrCyS3CnbjS1hN818RJ3BzWmneLIGo7VR_9QOMCKFK2glIdrktBFwppEL0_PnixdA2MSkWM407NXkwq14fR24JfWBN_Ftbg2zAyfStyx4yQTU-WwcsZPMelZCvxwRhp3gjh0b0uOjsNtI"
+              />
+            </div>
+            <div
+              class="relative min-w-[200px] h-64 rounded-lg overflow-hidden shadow-xl rotate-1 transform hover:rotate-0 transition-transform duration-300"
+            >
+              <img
+                alt="Forest sample"
+                class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtkpIdALVLIufHTSqXpSVNk6gk3BY3cw8gTNzYS75tXx7qu5OjHUvHcgIX5AZ1gRBERT0nSA49NGZmZ8nGvRvcUxnBDsWwQuoVrKdMYfLicjts6LjcBqUyZ7E5BBqwdCYPf1piQtJwihSPEUG2xPN8g3uNSKzbZs_y7Z2iOdrLST0gnvczdHLSj7ELHOYYHPA36kOG3_QfWbEHXZnXMongSorQCfaBuKqqJaDDdQ8R9ws28tyhG9xtzS0YRC9T93zehjHmMIQrtS0"
+              />
+            </div>
+            <div
+              class="min-w-[140px] h-64 rounded-lg bg-surface-container-high border-2 border-dashed border-outline-variant flex flex-col items-center justify-center text-outline"
+            >
+              <span class="material-symbols-outlined text-3xl mb-2">add</span>
+              <span class="text-[10px] font-label uppercase tracking-widest">Upload later</span>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="glass-card rounded-xl p-8 border border-white/30 shadow-sm">
+            <h3 class="font-headline text-2xl italic mb-4 text-primary">The vibe</h3>
+            <label class="sr-only" for="field-narrative">Trail story</label>
+            <textarea
+              id="field-narrative"
+              name="narrative"
+              class="w-full bg-transparent border-none p-0 text-on-surface-variant leading-relaxed focus:ring-0 placeholder:text-outline-variant italic"
+              placeholder="How did the trail feel today? Tell the story..."
+              rows="5"
+            ></textarea>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="font-label uppercase tracking-widest text-xs mb-4 text-outline text-center">Three things I liked most</h3>
+          <div class="space-y-4">
+            <div
+              class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-white/30"
+            >
+              <div
+                class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
+              >
+                1
+              </div>
+              <label class="sr-only" for="field-highlight-0">Highlight one</label>
+              <input
+                id="field-highlight-0"
+                name="highlight0"
+                class="flex-1 bg-transparent border-none p-0 text-sm font-medium focus:ring-0 placeholder:text-outline-variant"
+                placeholder="Something you loved"
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+            <div
+              class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-white/30"
+            >
+              <div
+                class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
+              >
+                2
+              </div>
+              <label class="sr-only" for="field-highlight-1">Highlight two</label>
+              <input
+                id="field-highlight-1"
+                name="highlight1"
+                class="flex-1 bg-transparent border-none p-0 text-sm font-medium focus:ring-0 placeholder:text-outline-variant"
+                placeholder="Another favorite moment"
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+            <div
+              class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border border-white/30"
+            >
+              <div
+                class="shrink-0 w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-headline font-bold"
+              >
+                3
+              </div>
+              <label class="sr-only" for="field-highlight-2">Highlight three</label>
+              <input
+                id="field-highlight-2"
+                name="highlight2"
+                class="flex-1 bg-transparent border-none p-0 text-sm font-medium focus:ring-0 placeholder:text-outline-variant"
+                placeholder="One more highlight"
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="bg-secondary-container/30 p-6 rounded-lg relative overflow-hidden">
+            <div class="absolute -right-8 -bottom-8 opacity-10" aria-hidden="true">
+              <span class="material-symbols-outlined text-9xl">restaurant</span>
+            </div>
+            <div class="relative z-10">
+              <h3 class="font-label uppercase tracking-widest text-[10px] text-on-secondary-container mb-2">The reward (food)</h3>
+              <label class="sr-only" for="field-reward-food">Post hike meal</label>
+              <input
+                id="field-reward-food"
+                name="rewardFood"
+                class="w-full bg-transparent border-none p-0 text-xl font-bold text-on-secondary-container focus:ring-0 placeholder:text-on-secondary-container/50"
+                placeholder="What was the post-hike fuel?"
+                type="text"
+                autocomplete="off"
+              />
+              <div class="mt-3 flex gap-2">
+                <span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-secondary"
+                  >Local gem</span
+                >
+                <span class="bg-white/50 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-secondary"
+                  >High carb</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="journal-entry-delete-wrap" class="pt-2" hidden>
+          <button
+            id="journal-entry-delete"
+            type="button"
+            class="w-full rounded-xl border border-error/30 bg-error-container/40 py-3 text-sm font-bold uppercase tracking-widest text-error transition-colors hover:bg-error-container/70"
+          >
+            Delete entry
+          </button>
+        </div>
+
+        <div class="fixed bottom-24 left-0 w-full px-6 z-40 pointer-events-none">
+          <div class="max-w-2xl mx-auto pointer-events-auto">
+            <button
+              id="journal-entry-save"
+              type="submit"
+              class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-5 rounded-xl font-bold tracking-widest uppercase text-sm shadow-xl shadow-primary/20 active:scale-95 transition-transform"
+            >
+              Save journal entry
+            </button>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <nav
+      class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px]"
+    >
+      <a
+        data-nav-tab="dashboard"
+        href="index.html"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+      >
+        <span class="material-symbols-outlined prototype-nav__icon">dashboard</span>
+        <span class="font-sans font-semibold text-[11px]">Dashboard</span>
+      </a>
+      <a
+        data-nav-tab="trips"
+        href="trips.html"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+      >
+        <span class="material-symbols-outlined prototype-nav__icon">map</span>
+        <span class="font-sans font-semibold text-[11px]">Trips</span>
+      </a>
+      <a
+        data-nav-tab="journal"
+        href="journal.html"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
+      >
+        <span class="material-symbols-outlined prototype-nav__icon">edit_note</span>
+        <span class="font-sans font-semibold text-[11px]">Journal</span>
+      </a>
+    </nav>
+
+    <script type="module" src="js/features/journal/journal-entry-page.js"></script>
+  </body>
+</html>

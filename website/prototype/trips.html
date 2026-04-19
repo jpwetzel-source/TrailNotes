@@ -186,27 +186,31 @@
       class="fixed bottom-0 left-0 z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px] rounded-full mx-6 mb-8 shadow-[0_12px_32px_rgba(23,28,31,0.06)] w-[calc(100%-3rem)]"
     >
       <a
+        data-nav-tab="dashboard"
         href="index.html"
-        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 hover:bg-white/40 no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
       >
-        <span class="material-symbols-outlined">dashboard</span>
+        <span class="material-symbols-outlined prototype-nav__icon">dashboard</span>
         <span class="font-sans font-semibold text-[11px]">Dashboard</span>
       </a>
       <a
+        data-nav-tab="trips"
         href="trips.html"
-        class="flex flex-col items-center justify-center bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-full py-2 px-6 scale-90 transition-transform duration-200 no-underline"
-        aria-current="page"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
       >
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">map</span>
+        <span class="material-symbols-outlined prototype-nav__icon">map</span>
         <span class="font-sans font-semibold text-[11px]">Trips</span>
       </a>
       <a
+        data-nav-tab="journal"
         href="journal.html"
-        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 hover:bg-white/40 no-underline"
+        class="prototype-nav__link flex flex-col items-center justify-center py-2 px-6 transition-transform duration-200 no-underline text-slate-500 dark:text-slate-400 hover:bg-white/40 dark:hover:bg-slate-700/40 rounded-full no-underline"
       >
-        <span class="material-symbols-outlined">edit_note</span>
+        <span class="material-symbols-outlined prototype-nav__icon">edit_note</span>
         <span class="font-sans font-semibold text-[11px]">Journal</span>
       </a>
     </nav>
+
+    <script type="module" src="js/core/boot-nav.js"></script>
   </body>
 </html>

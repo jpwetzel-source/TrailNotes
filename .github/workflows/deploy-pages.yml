@@ -23,23 +23,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Write Supabase config from secrets (optional)
+      - name: Write Supabase config from secrets (optional, for local TTT demo)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
         run: |
           if [ -n "$SUPABASE_URL" ] && [ -n "$SUPABASE_PUBLISHABLE_KEY" ]; then
             python3 -c "import os; u=os.environ['SUPABASE_URL']; k=os.environ['SUPABASE_PUBLISHABLE_KEY']; open('website/supabase-config.js','w',encoding='utf-8').write('export const supabaseUrl = '+repr(u)+';\nexport const supabasePublishableKey = '+repr(k)+';\n')"
-            echo "Wrote website/supabase-config.js"
+            echo "Wrote website/supabase-config.js (not published to Pages; prototype-only deploy)."
           else
-            echo "No SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY secrets: skipping config (site shows not configured)."
+            echo "No SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY secrets: skipping config."
           fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: website
+          path: website/prototype
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
