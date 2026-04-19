@@ -1,4 +1,4 @@
-# supabase-pages-site
+# TrailNotes
 
 Production project: static site in `website/` backed by **Supabase** (tic tac toe demo, live stats, connectivity check). Deploys to **GitHub Pages** from `main` via Actions. The `github-practice` repository stays a separate template and is not the deploy target for this project.
 
