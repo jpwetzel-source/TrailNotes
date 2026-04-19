@@ -55,6 +55,19 @@ function renderCard(trip, root) {
   const body = document.createElement("div");
   body.className = "px-2";
 
+  if (trip.feed === "mine") {
+    const yours = document.createElement("div");
+    yours.className =
+      "mb-2 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary";
+    const hi = document.createElement("span");
+    hi.className = "material-symbols-outlined text-[14px]";
+    hi.setAttribute("aria-hidden", "true");
+    hi.textContent = "hiking";
+    yours.appendChild(hi);
+    yours.appendChild(document.createTextNode(" Your log"));
+    body.appendChild(yours);
+  }
+
   if (trip.feed === "community" && trip.authorName) {
     const authorRow = document.createElement("div");
     authorRow.className = "flex items-center gap-3 mb-3";
@@ -130,6 +143,7 @@ function main() {
 
   const titleEl = document.getElementById("trips-page-title");
   const subtitleEl = document.getElementById("trips-page-subtitle");
+  const listHeadingEl = document.getElementById("trips-list-heading");
   const statsEl = document.getElementById("trips-quick-stats");
   const listRoot = document.getElementById("trips-list-root");
   const searchInput = document.getElementById("trips-search");
@@ -194,6 +208,9 @@ function main() {
         feed === "mine"
           ? `${n} journeys · about ${h}h on trail this season (demo)`
           : `${n} updates · friends and crew (demo)`;
+    }
+    if (listHeadingEl) {
+      listHeadingEl.textContent = feed === "mine" ? "Your saved routes" : "Friend and community routes";
     }
   }
 

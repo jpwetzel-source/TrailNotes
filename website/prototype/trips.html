@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
     <title>Journeys - TrailNotes</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="tw-theme.js"></script>
@@ -100,6 +102,8 @@
         </div>
       </section>
 
+      <p id="trips-list-heading" class="mb-3 text-xs font-bold uppercase tracking-widest text-primary">Your saved routes</p>
+
       <div class="mb-8 flex gap-3 overflow-x-auto pb-2 no-scrollbar" role="group" aria-label="Filter by terrain">
         <button type="button" data-trip-chip="all" class="shrink-0 rounded-full px-6 py-2 text-sm font-bold transition-colors">
           All trips
@@ -147,6 +151,6 @@
       </a>
     </nav>
 
-    <script type="module" src="js/features/trips/trips-page.js"></script>
+    <script type="module" src="js/features/trips/trips-page.js?v=2"></script>
   </body>
 </html>
