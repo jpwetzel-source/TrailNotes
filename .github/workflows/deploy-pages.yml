@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Write Supabase config from secrets (optional, for local TTT demo)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -35,11 +35,11 @@ jobs:
             echo "No SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY secrets: skipping config."
           fi
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: website/prototype
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

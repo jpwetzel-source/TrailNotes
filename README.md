@@ -25,6 +25,18 @@ Workflow: `.github/workflows/deploy-pages.yml`.
 
 To publish the **full** `website/` folder again (tic tac toe at `/`), change the workflow step **Upload artifact** to `path: website` instead of `website/prototype`.
 
+### Deploy fails: `Get Pages site failed` / `HttpError: Not Found`
+
+That response means GitHub does not yet have a **Pages site** configured for this repository, or the source is not **GitHub Actions**.
+
+1. Open **Settings → Pages** for the repo.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not *Deploy from a branch*). If you only see branch deploy, pick any branch once, save, then switch to **GitHub Actions** when GitHub shows it.
+3. Save, then in **Actions** open the failed workflow and **Re-run all jobs**.
+
+`actions/configure-pages` cannot create the site with the default `GITHUB_TOKEN` alone. Turning on Pages in the UI is required once per repo.
+
+The Node.js 20 deprecation notice in logs comes from older action runtimes. This repo’s workflow uses current major versions of the Pages actions where possible.
+
 ## Supabase
 
 1. Create a project at [https://supabase.com](https://supabase.com).
