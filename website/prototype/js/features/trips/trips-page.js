@@ -147,6 +147,7 @@ function main() {
   const statsEl = document.getElementById("trips-quick-stats");
   const listRoot = document.getElementById("trips-list-root");
   const searchInput = document.getElementById("trips-search");
+  const searchLabelEl = document.getElementById("trips-search-label");
   const tabMine = document.getElementById("trips-tab-mine");
   const tabCommunity = document.getElementById("trips-tab-community");
 
@@ -167,7 +168,7 @@ function main() {
     return pool().filter((t) => {
       if (category !== "all" && t.category !== category) return false;
       if (!q) return true;
-      const hay = `${t.title} ${t.description} ${t.authorName ?? ""}`.toLowerCase();
+      const hay = `${t.title} ${t.description} ${t.authorName ?? ""} ${t.dateLabel} ${t.duration}`.toLowerCase();
       return hay.includes(q);
     });
   }
@@ -211,6 +212,18 @@ function main() {
     }
     if (listHeadingEl) {
       listHeadingEl.textContent = feed === "mine" ? "Your saved routes" : "Friend and community routes";
+    }
+    if (searchInput instanceof HTMLInputElement) {
+      if (feed === "mine") {
+        searchInput.placeholder = "Search your routes, dates, or keywords";
+        searchInput.setAttribute("aria-label", "Search your journeys");
+      } else {
+        searchInput.placeholder = "Search friends, trails, or story text";
+        searchInput.setAttribute("aria-label", "Search community journeys");
+      }
+    }
+    if (searchLabelEl) {
+      searchLabelEl.textContent = feed === "mine" ? "Search your journeys" : "Search community journeys";
     }
   }
 
