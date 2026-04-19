@@ -1,4 +1,4 @@
-import { initPrototypeNav } from "../../core/nav.js";
+import { initAppChrome } from "../../core/app-chrome.js";
 import { deleteJournalEntry, getJournalEntry, newEmptyEntry, saveJournalEntry } from "./journal-store.js";
 
 /** @typedef {import("./journal-schema.js").JournalEntry} JournalEntry */
@@ -83,7 +83,7 @@ function snapshot(entryId) {
   return JSON.stringify(readForm(entryId));
 }
 
-initPrototypeNav();
+initAppChrome();
 
 const entryId = readIdFromQuery();
 const pageTitle = qs("journal-entry-page-title");

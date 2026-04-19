@@ -1,4 +1,4 @@
-import { initPrototypeNav } from "../../core/nav.js";
+import { initAppChrome } from "../../core/app-chrome.js";
 import { JOURNAL_STORAGE_KEY } from "./journal-schema.js";
 import { listJournalEntries } from "./journal-store.js";
 
@@ -105,7 +105,7 @@ function render() {
   root.appendChild(list);
 }
 
-initPrototypeNav();
+initAppChrome();
 render();
 
 globalThis.addEventListener("pageshow", (event) => {

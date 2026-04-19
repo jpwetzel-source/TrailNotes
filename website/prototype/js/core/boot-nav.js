@@ -1,3 +1,3 @@
-import { initPrototypeNav } from "./nav.js";
+import { initAppChrome } from "./app-chrome.js";
 
-initPrototypeNav();
+initAppChrome();

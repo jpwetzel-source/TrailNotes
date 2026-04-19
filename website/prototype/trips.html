@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="prototype.css?v=2" rel="stylesheet" />
+    <link href="prototype.css?v=3" rel="stylesheet" />
     <style>
       body.trips-body {
         font-family: Manrope, sans-serif;
@@ -28,20 +28,13 @@
   </head>
   <body class="app-shell trips-body bg-background text-on-background antialiased">
     <header class="app-top-bar">
-      <div class="flex min-w-0 flex-1 items-center gap-3">
-        <a href="index.html" class="app-back-btn" aria-label="Back to dashboard">
-          <span class="material-symbols-outlined text-2xl">arrow_back</span>
-        </a>
-        <div class="min-w-0">
-          <p class="text-[10px] font-label uppercase tracking-widest text-emerald-900/70">TrailNotes</p>
-          <h1
-            id="trips-page-title"
-            class="font-headline truncate text-xl leading-tight text-emerald-950 sm:text-2xl"
-          >
-            My journeys
-          </h1>
-        </div>
-      </div>
+      <a href="index.html" class="app-logo" aria-label="TrailNotes home, dashboard">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#006948" />
+          <path fill="#C8F9E4" d="M10 27 18 14l4 4.5 9.5-10V27z" />
+          <path fill="#fff" fill-opacity="0.45" d="M10 27 20.5 21.7 31 27z" />
+        </svg>
+      </a>
       <a href="profile.html" class="relative block shrink-0 rounded-full ring-1 ring-black/5">
         <img
           alt="Profile"
@@ -53,7 +46,8 @@
 
     <main class="app-main">
       <section class="mb-6">
-        <p id="trips-page-subtitle" class="text-sm font-medium text-on-surface-variant/90">
+        <h1 id="trips-page-title" class="font-headline text-2xl leading-tight text-emerald-950 sm:text-3xl">My journeys</h1>
+        <p id="trips-page-subtitle" class="mt-1 text-sm font-medium text-on-surface-variant/90">
           Your logged hikes and plans
         </p>
         <p id="trips-quick-stats" class="mt-2 text-xs font-bold uppercase tracking-wider text-slate-500"></p>
@@ -150,6 +144,6 @@
       </a>
     </nav>
 
-    <script type="module" src="js/features/trips/trips-page.js?v=4"></script>
+    <script type="module" src="js/features/trips/trips-page.js?v=5"></script>
   </body>
 </html>

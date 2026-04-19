@@ -14,19 +14,17 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
       rel="stylesheet"
     />
-    <link href="prototype.css?v=2" rel="stylesheet" />
+    <link href="prototype.css?v=3" rel="stylesheet" />
   </head>
   <body class="app-shell bg-surface font-body text-on-surface antialiased">
     <header class="app-top-bar">
-      <div class="flex min-w-0 flex-1 items-center gap-3">
-        <a href="index.html" class="app-back-btn" aria-label="Back to dashboard">
-          <span class="material-symbols-outlined text-2xl">arrow_back</span>
-        </a>
-        <div class="min-w-0">
-          <p class="text-[10px] font-label uppercase tracking-widest text-outline">TrailNotes</p>
-          <h1 class="font-headline truncate text-xl text-on-surface sm:text-2xl">Journal</h1>
-        </div>
-      </div>
+      <a href="index.html" class="app-logo" aria-label="TrailNotes home, dashboard">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#006948" />
+          <path fill="#C8F9E4" d="M10 27 18 14l4 4.5 9.5-10V27z" />
+          <path fill="#fff" fill-opacity="0.45" d="M10 27 20.5 21.7 31 27z" />
+        </svg>
+      </a>
       <a href="profile.html" class="block h-10 w-10 shrink-0 overflow-hidden rounded-full bg-surface-container-high ring-1 ring-black/5 shadow-sm">
         <img
           alt="Profile"
@@ -39,7 +37,8 @@
     <main class="app-main">
       <section class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div class="min-w-0">
-          <p class="max-w-md text-sm text-on-surface-variant">
+          <h1 class="font-headline text-3xl text-on-surface">Journal</h1>
+          <p class="mt-2 max-w-md text-sm text-on-surface-variant">
             Entries stay in this browser for now. They are easy to export later when you connect a backend.
           </p>
         </div>
@@ -91,6 +90,6 @@
       </a>
     </nav>
 
-    <script type="module" src="js/features/journal/journal-list-page.js"></script>
+    <script type="module" src="js/features/journal/journal-list-page.js?v=2"></script>
   </body>
 </html>

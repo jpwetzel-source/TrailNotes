@@ -43,6 +43,16 @@ body.app-shell {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+body.app-shell--header-hidden .app-top-bar {
+  transform: translateY(calc(-100% - 2px));
+  box-shadow: none;
+  pointer-events: none;
 }
 
 html.dark .app-top-bar,
@@ -60,6 +70,11 @@ html.dark .app-top-bar,
   padding-right: 1.5rem;
   padding-top: calc(var(--app-header-clearance) + env(safe-area-inset-top, 0px));
   padding-bottom: calc(var(--app-bottom-clearance) + env(safe-area-inset-bottom, 0px) + 0.5rem);
+  transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.app-shell--header-hidden .app-main {
+  padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
 }
 
 .app-main--fab {
@@ -115,29 +130,24 @@ html.dark .app-bottom-nav,
   max-width: 42rem;
 }
 
-.app-back-btn {
+.app-logo {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  padding: 0.25rem;
-  border-radius: 9999px;
-  color: rgb(6 95 70);
-  text-decoration: none;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  border-radius: 0.75rem;
+  line-height: 0;
+  box-shadow: 0 4px 16px rgba(0, 105, 72, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.app-back-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+.app-logo:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0, 105, 72, 0.32);
 }
 
-.app-back-btn:active {
+.app-logo:active {
   transform: scale(0.96);
-}
-
-html.dark .app-back-btn,
-.dark .app-back-btn {
-  color: rgb(52 211 153);
 }
 
 .no-scrollbar::-webkit-scrollbar {

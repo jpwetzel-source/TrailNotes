@@ -1,4 +1,4 @@
-import { initPrototypeNav } from "../../core/nav.js";
+import { initAppChrome } from "../../core/app-chrome.js";
 import { MOCK_COMMUNITY_TRIPS, MOCK_MY_TRIPS } from "./trips-mock-data.js";
 
 /** @typedef {import("./trips-mock-data.js").TripCardModel} TripCardModel */
@@ -139,7 +139,7 @@ function renderCard(trip, root) {
 }
 
 function main() {
-  initPrototypeNav();
+  initAppChrome();
 
   const titleEl = document.getElementById("trips-page-title");
   const subtitleEl = document.getElementById("trips-page-subtitle");
