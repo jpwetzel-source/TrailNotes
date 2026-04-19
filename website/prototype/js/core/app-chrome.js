@@ -1,16 +1,20 @@
+import { mountPrototypeAppShell } from "./app-shell-ui.js";
 import { initPrototypeNav } from "./nav.js";
 
 /**
- * Bottom tabs + optional scroll-away top bar. Call once per page.
+ * Mounts shared header and bottom nav (when mount nodes exist), syncs tab state,
+ * and wires the scroll-away top bar. Safe to call once per page load.
  */
 export function initAppChrome() {
+  mountPrototypeAppShell();
   initPrototypeNav();
   initScrollAwayHeader();
 }
 
 function initScrollAwayHeader() {
   const bar = document.querySelector(".app-top-bar");
-  if (!bar) return;
+  if (!bar || bar.dataset.scrollAwayInit === "1") return;
+  bar.dataset.scrollAwayInit = "1";
 
   let lastY = globalThis.scrollY || 0;
   let ticking = false;

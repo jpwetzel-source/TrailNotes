@@ -17,22 +17,7 @@
     <link href="prototype.css?v=3" rel="stylesheet" />
   </head>
   <body class="app-shell bg-background font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed antialiased">
-    <header class="app-top-bar">
-      <a href="index.html" class="app-logo" aria-label="TrailNotes home, dashboard">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none" aria-hidden="true">
-          <rect width="40" height="40" rx="10" fill="#006948" />
-          <path fill="#C8F9E4" d="M10 27 18 14l4 4.5 9.5-10V27z" />
-          <path fill="#fff" fill-opacity="0.45" d="M10 27 20.5 21.7 31 27z" />
-        </svg>
-      </a>
-      <a href="profile.html" class="block h-10 w-10 shrink-0 overflow-hidden rounded-full bg-surface-container-high ring-2 ring-primary-container/25 ring-offset-2 ring-offset-background">
-        <img
-          alt="Profile"
-          class="h-full w-full object-cover"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7oTJ_50QL10CM8OB8L-7kO5zjBJwF-__mv4B3m2TiivGhNJjf-X7IbjtUuFKsiExxZok65qtuiSs55sC3WZ605Whqqki9qrCT-8JoHHPvMpvXPoOUT6M5TmO7iOUCLySRTUOSCWN1ARGW-ssK8j0f5h6d9XpdKypYzpEnnYTbG4ol8kZb0pI8CU5lROl0kXMjAmZbsH_N09YCnLuGfHUzgsQ5ccqa8OFrXRdZbqXRny_W6Si1HAxHj9oHoBX2nQe-zM5vES9SOrA"
-        />
-      </a>
-    </header>
+    <header id="prototype-app-header" class="app-top-bar"></header>
 
     <main class="app-main relative">
       <h1 class="sr-only">Profile</h1>
@@ -137,33 +122,8 @@
       </div>
     </main>
 
-    <nav class="app-bottom-nav" aria-label="Primary">
-      <a
-        data-nav-tab="dashboard"
-        href="index.html"
-        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
-      >
-        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">dashboard</span>
-        <span class="font-sans text-[11px] font-semibold">Dashboard</span>
-      </a>
-      <a
-        data-nav-tab="trips"
-        href="trips.html"
-        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
-      >
-        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">map</span>
-        <span class="font-sans text-[11px] font-semibold">Trips</span>
-      </a>
-      <a
-        data-nav-tab="journal"
-        href="journal.html"
-        class="prototype-nav__link flex flex-col items-center justify-center rounded-full px-5 py-2 no-underline transition-transform duration-200"
-      >
-        <span class="material-symbols-outlined prototype-nav__icon text-[22px]">edit_note</span>
-        <span class="font-sans text-[11px] font-semibold">Journal</span>
-      </a>
-    </nav>
+    <nav id="prototype-app-bottom-nav" class="app-bottom-nav" aria-label="Primary"></nav>
 
-    <script type="module" src="js/core/boot-nav.js"></script>
+    <script type="module" src="js/core/boot-nav.js?v=4"></script>
   </body>
 </html>
