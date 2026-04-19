@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrailNotes - My Journeys</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tw-theme.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link href="prototype.css" rel="stylesheet" />
+    <style>
+      body.trips-body {
+        font-family: Manrope, sans-serif;
+        background-image: radial-gradient(at 0% 0%, rgba(133, 248, 196, 0.15) 0px, transparent 50%),
+          radial-gradient(at 100% 0%, rgba(0, 105, 72, 0.05) 0px, transparent 50%);
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body class="trips-body bg-background text-on-background min-h-screen pb-32">
+    <header
+      class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-white/70 dark:bg-slate-900/70 backdrop-blur-3xl shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+    >
+      <div class="flex items-center gap-3">
+        <a
+          href="index.html"
+          class="flex items-center justify-center p-2 rounded-full hover:bg-white/20 transition-colors active:scale-95 duration-150 text-emerald-800"
+          aria-label="Home"
+        >
+          <span class="material-symbols-outlined">menu</span>
+        </a>
+        <a href="index.html" class="font-serif font-bold text-2xl tracking-tight text-emerald-900 no-underline">TrailNotes</a>
+      </div>
+      <a href="profile.html" class="relative block">
+        <img
+          alt="Profile"
+          class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhOEpq8_3fsT43yxbgik5uCnKvJqFP-t7CFx7BSwt6qtXsm81q551GnnxgEvBQ2JodKpGsGEDqKQBPtkzdiUpvUYn8DmJJu6CpXIAedBCvnBnJpvSciVX8Z0LVZwiCCKW-0g2I-eZa4jiD-MFlk66YWxp84_BHvQ5DNOAOu4iV7OfVsIsaDp3VtwXTn4bP-m9JCTWsvQ4xgLMPSoLbt3gWWnGBYiXCLRWvgPC-doot-t4Rwp2GTN9phgvbUX8bMS5_e8mh_ERsz4Y"
+        />
+      </a>
+    </header>
+
+    <main class="pt-24 px-6">
+      <section class="mb-10">
+        <h1 class="font-serif font-bold text-4xl text-on-background mb-2 leading-tight">My Journeys</h1>
+        <p class="text-on-surface-variant font-medium opacity-70">12 trails explored this season</p>
+      </section>
+
+      <div class="flex gap-3 mb-8 overflow-x-auto pb-2 no-scrollbar">
+        <span class="bg-primary-fixed text-on-primary-fixed px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
+          >All Trips</span
+        >
+        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
+          >Alpine</span
+        >
+        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
+          >Forests</span
+        >
+        <span class="bg-surface-container-highest text-on-surface-variant px-6 py-2 rounded-full font-bold text-sm whitespace-nowrap"
+          >Coastal</span
+        >
+      </div>
+
+      <div class="space-y-8">
+        <article
+          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
+        >
+          <div class="flex flex-col gap-4">
+            <div class="relative h-48 w-full rounded-lg overflow-hidden">
+              <img
+                alt="Mountain View"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCe_D2_NTW-isPf0mvjiECO0zjsn38Rp3jdDfGE04FEJLL8BvcBShQexyCATSKcrqs20jPWvuiWRQbENM2t5byap3jT8pOcDyl6y1TjUP4K0Q9G1_0zm9NuJizEWMdDFtyQO073BeU7nfFdT7JYKeGYDQjmfstp26SGvoA3qToxp0u0Xxr-2L-VwoRDf3R2uKOfpbsC8BdBL57JFVfsxF3pgBeztNt2EeQDFHIJEwvGX6OdEFCvVLFrIqVvlx9UMmrOpBQaZUf3XX0"
+              />
+              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
+                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
+              </div>
+            </div>
+            <div class="px-2">
+              <div class="flex justify-between items-start mb-2">
+                <h2 class="font-serif font-bold text-2xl text-emerald-900">High Sierra Loop</h2>
+                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
+              </div>
+              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                  Oct 12, 2023
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">schedule</span>
+                  6h 45m
+                </div>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                An alpine journey through the heart of the Sierra Nevada. Witnessed a breathtaking sunrise over the glacial
+                lake near the summit.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
+        >
+          <div class="flex flex-col gap-4">
+            <div class="relative h-48 w-full rounded-lg overflow-hidden">
+              <img
+                alt="Forest Path"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLvfjHCxUtlhkywOG4KC_G3lYLw_F0tg3zsbhuyMInS7fIh4ZZu7BBKWrSA2SP6DfzfbIe5dvsbmWS308l5V36UxDeo5m3__EU1ZxpoZeIjniCn6b4hm1CR9oWqgyFojbBw_AfOYLNMRUc4wc8MeLADyhaHySCAR1MKcCvWPWJvoQ21OYFvmjGLqILYto68Jas1elBiRFSLreG5ZOkbYllLo-WY-BGy91of0vIap9qWpM_sJyYKYASqpQZzfJkXVl-Qe2JTjMMhhg"
+              />
+              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
+                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
+              </div>
+            </div>
+            <div class="px-2">
+              <div class="flex justify-between items-start mb-2">
+                <h2 class="font-serif font-bold text-2xl text-emerald-900">Emerald Forest Path</h2>
+                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
+              </div>
+              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                  Sep 28, 2023
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">schedule</span>
+                  3h 20m
+                </div>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                A peaceful wander through ancient ferns and towering redwoods. The air was thick with the scent of damp earth
+                and pine needles.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="relative group bg-surface-container-lowest/70 backdrop-blur-3xl rounded-xl p-4 shadow-[0_12px_32px_rgba(23,28,31,0.06)] overflow-hidden"
+        >
+          <div class="flex flex-col gap-4">
+            <div class="relative h-48 w-full rounded-lg overflow-hidden">
+              <img
+                alt="Coastal Cliff"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB61-viXAgSCAoS72vduxBql_72_6YRiP7MSSCcnHNlzuoorIMe16MOe1DKSRSYeLnsQ7Qkc3UUdNJJfivE82F6X0lirGfUiH706FfU3RON1PAoAkTZ7x01rwEvjXfhq8pUSVEW6J__g_ve79Kwb0EiBxg_IDry8L_uO3aLlBnk1PAAwF0M4uV8TIl0UWrfNK8h-RGuB7ZBpv087b3XSiyHCiLRHuCpM1H1eHrlnGo_y4dPKa8KYaDf1eu2EAPDL_3U6PuUrN2aF1Y"
+              />
+              <div class="absolute top-4 right-4 bg-white/40 backdrop-blur-md px-3 py-1 rounded-full">
+                <span class="text-[11px] font-bold text-on-primary-fixed-variant uppercase tracking-widest">Completed</span>
+              </div>
+            </div>
+            <div class="px-2">
+              <div class="flex justify-between items-start mb-2">
+                <h2 class="font-serif font-bold text-2xl text-emerald-900">Pacific Rim Trail</h2>
+                <span class="material-symbols-outlined text-emerald-700">arrow_outward</span>
+              </div>
+              <div class="flex gap-4 mb-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+                  Sep 04, 2023
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">schedule</span>
+                  5h 10m
+                </div>
+              </div>
+              <p class="text-on-surface-variant leading-relaxed text-sm">
+                Dramatic coastal views and steady sea breezes. Spotted a pod of whales migrating south near the halfway point
+                lookout.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <nav
+      class="fixed bottom-0 left-0 z-50 flex justify-around items-center px-4 py-3 bg-white/70 dark:bg-slate-900/80 backdrop-blur-[30px] rounded-full mx-6 mb-8 shadow-[0_12px_32px_rgba(23,28,31,0.06)] w-[calc(100%-3rem)]"
+    >
+      <a
+        href="index.html"
+        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 hover:bg-white/40 no-underline"
+      >
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="font-sans font-semibold text-[11px]">Dashboard</span>
+      </a>
+      <a
+        href="trips.html"
+        class="flex flex-col items-center justify-center bg-emerald-100/50 dark:bg-emerald-900/30 text-emerald-900 dark:text-emerald-100 rounded-full py-2 px-6 scale-90 transition-transform duration-200 no-underline"
+        aria-current="page"
+      >
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">map</span>
+        <span class="font-sans font-semibold text-[11px]">Trips</span>
+      </a>
+      <a
+        href="journal.html"
+        class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 py-2 px-4 hover:bg-white/40 no-underline"
+      >
+        <span class="material-symbols-outlined">edit_note</span>
+        <span class="font-sans font-semibold text-[11px]">Journal</span>
+      </a>
+    </nav>
+  </body>
+</html>

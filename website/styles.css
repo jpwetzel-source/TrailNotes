@@ -166,6 +166,23 @@ body {
   color: var(--text-soft);
 }
 
+.prototype-teaser {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.prototype-teaser a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.prototype-teaser a:hover {
+  color: var(--accent-hover);
+}
+
 .section-title {
   margin: 0 0 0.35rem;
   font-family: var(--font-display);
